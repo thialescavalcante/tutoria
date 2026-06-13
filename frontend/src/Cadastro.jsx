@@ -24,7 +24,7 @@ function Cadastro({ onVoltar, onCadastroSucesso }) {
     if (f.senha !== confirmarSenha) return alert("As senhas não coincidem!");
 
     setLoading(true);
-    const r = await fetch('http://127.0.0.1:5000/api/register', {
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(f)
@@ -43,7 +43,7 @@ function Cadastro({ onVoltar, onCadastroSucesso }) {
   const confirmarAtivacao = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const r = await fetch('http://127.0.0.1:5000/api/verify-registration', {
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/api/verify-registration`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ email: f.email, token })

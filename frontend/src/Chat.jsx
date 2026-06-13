@@ -36,7 +36,7 @@ function Chat({ user, onLogout }) {
     setImg(null); // Limpa o anexo da tela após o envio
 
     try {
-      const r = await fetch('http://127.0.0.1:5000/api/chat', {
+      const r = await fetch(`${import.meta.env.VITE_API_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

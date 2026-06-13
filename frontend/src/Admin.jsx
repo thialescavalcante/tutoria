@@ -6,13 +6,13 @@ function Admin({ user, onLogout }) {
   const heads = {'Content-Type': 'application/json', 'Authorization': `Bearer ${user.token}`};
 
   const load = async () => {
-    const r = await fetch('http://127.0.0.1:5000/api/admin/users', {headers: heads});
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/users`, {headers: heads});
     const d = await r.json(); if (d.success) setUsers(d.users);
   };
   useEffect(() => { load(); }, []);
 
   const toggle = async (id) => {
-    await fetch('http://127.0.0.1:5000/api/admin/toggle', {method: 'POST', headers: heads, body: JSON.stringify({id})});
+    await fetch(`${import.meta.env.VITE_API_URL}/api/admin/toggle`, {method: 'POST', headers: heads, body: JSON.stringify({id})});
     load();
   };
 

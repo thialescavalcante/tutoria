@@ -12,7 +12,7 @@ function Login({ onLoginSucesso, onIrParaCadastro }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const r = await fetch('http://127.0.0.1:5000/api/login', {
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ login: f.email, senha: f.senha })
     });
@@ -24,7 +24,7 @@ function Login({ onLoginSucesso, onIrParaCadastro }) {
   const handlePedirToken = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const r = await fetch('http://127.0.0.1:5000/api/forgot-password', {
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/api/forgot-password`, {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ email: resetEmail })
     });
@@ -37,7 +37,7 @@ function Login({ onLoginSucesso, onIrParaCadastro }) {
   const handleSalvarSenha = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const r = await fetch('http://127.0.0.1:5000/api/reset-password', {
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/api/reset-password`, {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ email: resetEmail, token: resetData.token, nova_senha: resetData.nova_senha })
     });
