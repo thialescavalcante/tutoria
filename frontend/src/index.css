@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Paleta "caderno de matemática" */
+  --paper: #faf7f0;
+  --paper-line: #d8d2c2;
+  --ink: #2b2b2e;
+  --ink-soft: #6b6b6f;
+  --slate: #2f5d4f;        /* verde-lousa */
+  --slate-light: #e7f0ec;
+  --chalk: #e0703e;        /* terracota / giz laranja */
+  --chalk-light: #fdebe2;
+  --notebook-blue: #7b9eac; /* linhas de caderno */
+  --card-bg: #ffffff;
+  --danger: #c0463c;
+
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  margin: 0;
+  min-height: 100vh;
+
+  /* Fundo quadriculado sutil, tipo caderno de matemática */
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+button { cursor: pointer; transition: 0.18s ease; font-family: var(--font-body); }
+button:disabled { cursor: not-allowed; opacity: 0.65; }
+
+input, select {
+  font-family: var(--font-body);
+}
+
+input:focus, select:focus, button:focus-visible {
+  outline: 2px solid var(--slate);
+  outline-offset: 2px;
+}
+
+::placeholder { color: #a8a39a; }
+
+/* Scrollbar discreta */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: var(--paper-line); border-radius: 4px; }

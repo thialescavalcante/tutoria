@@ -1,0 +1,15 @@
+# Pastas de Dependências
+node_modules/
+backend/venv/
+backend/__pycache__/
+
+# Variáveis de ambiente (Senhas e Chaves API)
+.env
+
+# Banco de dados local (Para evitar sobrescrever dados em produção)
+*.db
+*.sqlite3
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
