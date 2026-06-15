@@ -51,7 +51,7 @@ def enviar_token_senha(destinatario, token):
 
     try:
         # Configuração para o servidor SMTP do Gmail (Porta 587 com TLS)
-        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)
         server.starttls() # Ativa a criptografia de segurança
         server.login(remetente, senha)
         server.send_message(msg)
