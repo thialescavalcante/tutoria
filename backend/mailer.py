@@ -51,11 +51,10 @@ def enviar_token_senha(destinatario, token):
 
     try:
         # Configuração para o servidor SMTP do Gmail (Porta 587 com TLS)
-        server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)
-        server.starttls() # Ativa a criptografia de segurança
-        server.login(remetente, senha)
-        server.send_message(msg)
-        server.quit()
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10)
+	server.login(remetente, senha)
+	server.send_message(msg)
+	server.quit()
         return True, "E-mail enviado com sucesso"
     except Exception as e:
         return False, str(e)
